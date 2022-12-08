@@ -1,9 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/topbar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label_bookings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/uber_move_bold"
+            android:text="Good Morning"
+            android:layout_toLeftOf="@+id/menu_layout"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:gravity="end"
+            android:id="@+id/menu_layout"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content">
+
+            <com.mobileapp.doorbell.utils.MainScreenMenu
+                android:layout_width="wrap_content"
+                android:id="@+id/customer_menu"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:padding="15dp"
+        android:id="@+id/layout_card"
+        android:layout_below="@+id/topbar"
+        android:background="@drawable/ic_gradient"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/label_wages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accured Wages"
+            android:textColor="@color/white" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_logo_white"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_wages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_wages"
+            android:text="$ 120.00 USD"
+            android:fontFamily="@font/uber_move_bold"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+
+        <TextView
+            android:id="@+id/label_widraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Withdrawable wages"
+            android:layout_below="@+id/tv_wages"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/tv_widraw_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_widraw"
+            android:text="$ 1230.00 USD"
+            android:fontFamily="@font/uber_move_bold"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_widraw"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/round_corner"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/uber_move_bold"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:text="Withdraw"
+            android:textColor="@color/purple_200"
+            android:textSize="14sp" />
+
+
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/layout_card"
+        android:overScrollMode="never"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_below="@+id/layout_card"
+                android:layout_marginLeft="16dp"
+                android:id="@+id/layout_payday"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/label_payday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/uber_move_medium"
+                    android:text="Next Scheduled Payday"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/label_payday"
+                    android:fontFamily="@font/uber_move_regular"
+                    android:textSize="12sp"
+                    android:text="Next Payday: Monday, 05 July 2022" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/round_corner"
+                    android:backgroundTint="#2f52b758"
+                    android:fontFamily="@font/uber_move_regular"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="8dp"
+                    android:text="View All"
+                    android:textColor="#3b9340"
+                    android:textSize="10sp" />
+
+
+            </RelativeLayout>
+
+
+            <com.mobileapp.doorbell.utils.GregorianCalView
+                android:id="@+id/calview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_payday"
+                android:layout_marginTop="8dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_below="@+id/calview"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:id="@+id/transaction_layout"
+                android:layout_marginRight="16dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/label_transaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/uber_move_medium"
+                    android:text="Transactions Summary"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/label_transaction"
+                    android:fontFamily="@font/uber_move_regular"
+                    android:textSize="12sp"
+                    android:text="Last Transaction Details" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/round_corner"
+                    android:backgroundTint="#2f52b758"
+                    android:fontFamily="@font/uber_move_regular"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="8dp"
+                    android:text="View All"
+                    android:textColor="#3b9340"
+                    android:textSize="10sp" />
+
+
+            </RelativeLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/transaction_list"
+                android:overScrollMode="never"
+                android:layout_below="@+id/transaction_layout"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
 
 </RelativeLayout>

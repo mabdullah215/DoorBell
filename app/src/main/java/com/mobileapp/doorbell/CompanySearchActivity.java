@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.mobileapp.doorbell.adapter.CompanyListAdapter;
 import com.mobileapp.doorbell.model.Company;
 
@@ -35,13 +37,7 @@ public class CompanySearchActivity extends AppCompatActivity {
         TextView tvTitle=findViewById(R.id.tv_title);
         tvTitle.setText("Select Company");
         ImageView imgBack=findViewById(R.id.img_back);
-        imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
+        imgBack.setOnClickListener(view -> finish());
         readFile();
         adapter=new CompanyListAdapter(getBaseContext(),list);
         RecyclerView recyclerView=findViewById(R.id.data_list);
@@ -66,6 +62,15 @@ public class CompanySearchActivity extends AppCompatActivity {
                 searchTxt(text);
             }
         });
+
+        adapter.setOnItemClickListener(new CompanyListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position)
+            {
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                Animatoo.INSTANCE.animateSlideLeft(CompanySearchActivity.this);
+            }
+        });
     }
 
     public void readFile()
@@ -84,7 +89,7 @@ public class CompanySearchActivity extends AppCompatActivity {
             ioe.printStackTrace();
         }
     }
-    
+
     public void searchTxt(String query)
     {
         if(query.isEmpty())

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+
 public class VerificationActivity extends AppCompatActivity {
 
     @Override
@@ -19,12 +21,14 @@ public class VerificationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(),CompanySearchActivity.class));
+                Animatoo.INSTANCE.animateZoom(VerificationActivity.this);
             }
         });
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+                Animatoo.INSTANCE.animateSlideRight(VerificationActivity.this);
             }
         });
     }

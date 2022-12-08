@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+
 public class RegisterActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(),OtpActivity.class));
+                Animatoo.INSTANCE.animateSlideLeft(RegisterActivity.this);
             }
         });
     }
