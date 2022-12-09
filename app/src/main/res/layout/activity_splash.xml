@@ -40,18 +40,17 @@
         android:layout_height="25dp"/>
 
 
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="center"
-        android:visibility="visible"
         android:id="@+id/tv_bottom_label"
-        android:layout_marginBottom="20dp"
-        android:textSize="12sp"
-        android:textColor="@color/purple_200"
-        android:text="All copyrights &#169; Reserved\nHelados 2022"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="All copyrights &#169; Reserved\nDoorBell 2022"
+        android:textAlignment="center"
+        android:textColor="@color/purple_200"
+        android:textSize="12sp"
+        android:visibility="visible" />
 
 </RelativeLayout>

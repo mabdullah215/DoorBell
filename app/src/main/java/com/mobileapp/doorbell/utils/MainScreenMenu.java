@@ -74,7 +74,15 @@ public class MainScreenMenu extends RelativeLayout
         imgNotifications.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v)
-            {   selected=2;
+            {   selected=1;
+                selectOption(selected);
+            }
+        });
+
+        imgSettings.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selected=2;
                 selectOption(selected);
             }
         });
